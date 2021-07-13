@@ -6,9 +6,6 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Service
 {
@@ -31,7 +28,7 @@ public class Service
     public static void setUpTheEntities(Customer customer)
     {
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure()
+                .configure("hibernate.cfg.xml")
                 .build();
         SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
         Session session = sf.openSession();
